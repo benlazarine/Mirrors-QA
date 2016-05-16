@@ -1,0 +1,13 @@
+build/
+*.pyc
+*.class
+.idea
+.DS_Store
+downloads/
+download/
+report.html
+output.xml
+log.html
+derby.log
+libpeerconnection.log
+jmeter.log
