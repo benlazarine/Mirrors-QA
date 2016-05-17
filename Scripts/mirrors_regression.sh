@@ -60,24 +60,24 @@ else
 fi
 
 
-if [ ! -d $HOME/trunk/DataStore/download ]; then
-	mkdir -p $HOME/trunk/DataStore/download
+if [ ! -d $HOME/trunk/Mirrors-QA/download ]; then
+	mkdir -p $HOME/trunk/Mirrors-QA/download
 else
-	rm -rf $HOME/trunk/DataStore/download/*
+	rm -rf $HOME/trunk/Mirrors-QA/download/*
 fi
 
 
 ##  Checkout the code for a specific branch based on environment running in
-cd $HOME/trunk/DataStore
+cd $HOME/trunk/Mirrors-QA
 git checkout master
 git pull
-cd $HOME/trunk/iPlant-TestData
-git checkout master
-git pull
+#cd $HOME/trunk/iPlant-TestData
+#git checkout master
+#git pull
 
 
 # Run the cleanup suite
-cd $HOME/trunk/DataStore
+cd $HOME/trunk/Mirrors-QA
 if [ "`echo $ENV | tr [:upper:] [:lower:]`" = "all" ]; then
 	pybot -A ../MarybellVars.txt -d $HOME/junk/CleanUp/ -o CleanMarybell-Output.xml --name CleanUp_Marybell CleanUp/Mirrors_CleanUp.robot
 	pybot -A ../MirrorsProdVars.txt -d $HOME/junk/CleanUp/ -o CleanMirrorsProd-Output.xml --name CleanUp_Mirrors CleanUp/Mirrors_CleanUp.robot
