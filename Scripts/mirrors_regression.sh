@@ -31,11 +31,6 @@ fi
 
 # Clean out the output directories
 if [ "`echo $ENV | tr [:upper:] [:lower:]`" = "all" ]; then
-	if [ ! -d $HOME/junk/CleanUp ]; then
-		mkdir -p $HOME/junk/CleanUp
-	else
-		rm -rf $HOME/junk/CleanUp/*
-	fi
 	if [ ! -d $HOME/junk/RegressionTests_Marybell ]; then
 		mkdir -p $HOME/junk/RegressionTests_Marybell
 	else
@@ -47,11 +42,6 @@ if [ "`echo $ENV | tr [:upper:] [:lower:]`" = "all" ]; then
 		rm -rf $HOME/junk/RegressionTests_Mirrors/*
 	fi
 else
-	if [ ! -d $HOME/junk/CleanUp ]; then
-		mkdir -p $HOME/junk/CleanUp
-	else
-		rm -rf $HOME/junk/CleanUp/*
-	fi
 	if [ ! -d $HOME/junk/RegressionTests_$ENV ]; then
 		mkdir -p $HOME/junk/RegressionTests_$ENV
 	else
@@ -102,11 +92,8 @@ fi
 
 
 if [ "`echo $ENV | tr [:upper:] [:lower:]`" = "all" ]; then
-	if [ ! -r $HOME/junk/CleanUp/CleanMarybell-Output.xml ]; then
+	if [ ! -r $HOME/junk/RegressionTests_Marybell/CleanMarybell-Output.xml ]; then
 		echo "- - -  Missing CleanMarybell-Output.xml file"
-	fi
-	if [ ! -r $HOME/junk/CleanUp/CleanMirrorsProd-Output.xml ]; then
-		echo "- - -  Missing CleanMirrorsProd-Output.xml file"
 	fi
 	if [ ! -r $HOME/junk/RegressionTests_Marybell/Marybell_CL-Output.xml ]; then
 		echo "- - -  Missing Marybell_CL-Output.xml file"
@@ -116,6 +103,9 @@ if [ "`echo $ENV | tr [:upper:] [:lower:]`" = "all" ]; then
 	fi
 	if [ ! -r $HOME/junk/RegressionTests_Marybell/Marybell_Chrome-Output.xml ]; then
 		echo "- - -  Missing Marybell_Chrome-Output.xml file"
+	fi
+	if [ ! -r $HOME/junk/RegressionTests_MirrorsProd/CleanMirrorsProd-Output.xml ]; then
+		echo "- - -  Missing CleanMirrorsProd-Output.xml file"
 	fi
 	if [ ! -r $HOME/junk/RegressionTests_MirrorsProd/Mirrors_CL-Output.xml ]; then
 		echo "- - -  Missing Mirrors_CL-Output.xml file"
@@ -145,8 +135,8 @@ fi
 if [ "`echo $ENV | tr [:upper:] [:lower:]`" = "all" ]; then
 	# Now combine all the results into one report
 	cd $HOME/trunk
-	if [ -r $HOME/junk/CleanUp/CleanMarybell-Output.xml ] && \
-		[ -r $HOME/junk/CleanUp/CleanMirrorsProd-Output.xml ] && \
+	if [ -r $HOME/junk/RegressionTests_Marybell/CleanMarybell-Output.xml ] && \
+		[ -r $HOME/junk/RegressionTests_MirrorsProd/CleanMirrorsProd-Output.xml ] && \
 		[ -r $HOME/junk/RegressionTests_Marybell/Marybell_CL-Output.xml ] && \
 		[ -r $HOME/junk/RegressionTests_Marybell/Marybell_FireFox-Output.xml ] && \
 		[ -r $HOME/junk/RegressionTests_Marybell/Marybell_Chrome-Output.xml ] && \
