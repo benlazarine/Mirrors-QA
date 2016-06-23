@@ -267,8 +267,10 @@ Verify WGSOryza_metadata_fields.csv preview
     [Tags]    GUI    smoke
     Switch Browser    ${BrowserAlias}
     Click Link    shared
-    Wait Until Page Contains Element    link=data_commons    ${GUIShortWait}
-    Click Link    data_commons
+    Comment    Wait Until Page Contains Element    link=data_commons    ${GUIShortWait}
+    Wait Until Page Contains Element    link=commons_repo    ${GUIShortWait}
+    Comment    Click Link    data_commons
+    Click Link    commons_repo
     Wait Until Page Contains Element    link=curated    ${GUIShortWait}
     Click Link    curated
     Wait Until Page Contains Element    link=Duitama_rice_variation_2015    ${GUIShortWait}
