@@ -69,7 +69,7 @@ Verify Mark James website link
 Verify CyVerse Home (top) link
     [Tags]    GUI    smoke
     Switch Browser    ${BrowserAlias}
-    Page Should Contain Link    Mark James
+    Page Should Contain Link    CyVerse Home
 
 Verify CyVerse Home (top) link href
     [Tags]    GUI    smoke
@@ -79,7 +79,7 @@ Verify CyVerse Home (top) link href
 Verify Data Store (top) link
     [Tags]    GUI    smoke
     Switch Browser    ${BrowserAlias}
-    Page Should Contain Link    Mark James
+    Page Should Contain Link    Data Store
 
 Verify Data Store (top) link href
     [Tags]    GUI    smoke
@@ -89,7 +89,7 @@ Verify Data Store (top) link href
 Verify Discovery Environment (top) link
     [Tags]    GUI    smoke
     Switch Browser    ${BrowserAlias}
-    Page Should Contain Link    Mark James
+    Page Should Contain Link    Discovery Environment
 
 Verify Discovery Environment (top) link href
     [Tags]    GUI    smoke
