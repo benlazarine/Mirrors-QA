@@ -57,12 +57,12 @@ Verify Atmosphere website (bottom) link href
     Page Should Contain Link    https://atmo.iplantcollaborative.org
 
 Verify Silk Icons by text
-    [Tags]    GUI    smoke    skipped
+    [Tags]    GUI    smoke
     Switch Browser    ${BrowserAlias}
     Page Should Contain    Silk Icons by
 
 Verify Mark James website link
-    [Tags]    GUI    smoke    skipped
+    [Tags]    GUI    smoke
     Switch Browser    ${BrowserAlias}
     Page Should Contain Link    Mark James
 
@@ -119,15 +119,13 @@ Verify About CyVerse Mirrors (top) link href
 Goto iplantcollaborative collection
     [Tags]    GUI    smoke
     Switch Browser    ${BrowserAlias}
-    Wait Until Page Contains Element    link=iplantcollaborative    ${GUIShortWait}
-    Comment    Click Link    iplantcollaborative
-    Click Link    /browse/iplant/home/shared/iplantcollaborative
+    Click Link    iplantcollaborative
     Wait Until Page Contains Element    link=example_data    ${GUIShortWait}
 
 Goto iplantcollaborative/example_data collection
     [Tags]    GUI    smoke
     Switch Browser    ${BrowserAlias}
-    Click Link    /browse/iplant/home/shared/iplantcollaborative/example_data
+    Click Link    example_data
     Wait Until Page Contains Element    link=assembly_stats    ${GUIShortWait}
 
 Goto iplantcollaborative/example_data/assembly_stats collection
@@ -139,138 +137,81 @@ Goto iplantcollaborative/example_data/assembly_stats collection
 Goto iplantcollaborative/example_data/assembly_stats/input collection
     [Tags]    GUI    smoke
     Switch Browser    ${BrowserAlias}
-    Click Link    /browse/iplant/home/shared/iplantcollaborative/example_data/assembly_stats/input
+    Click Link    input
     Wait Until Page Contains Element    link=BAgenomeRay41.fa    ${GUIShortWait}
 
 Verify Breadcrumb links
-    [Tags]    GUI    smoke    skipped
-    Switch Browser    ${BrowserAlias}
-    Wait Until Page Contains Element    link=BAgenomeRay41.fa    ${GUIShortWait}
-    Page Should Contain Link    /browse/iplant/home/shared
-    Page Should Contain Link    /browse/iplant/home/shared/iplantcollaborative
-    Page Should Contain Link    /browse/iplant/home/shared/iplantcollaborative/example_data
-    Page Should Contain Link    /browse/iplant/home/shared/iplantcollaborative/example_data/assembly_stats
-    Comment    Page Should Contain Link    /browse/iplant/home/shared/iplantcollaborative/example_data/assembly_stats/input
-    Page Should Contain Link    /browse/iplant/home/shared/iplantcollaborative/example_data/assembly_stats/input/BAgenomeRay41.fa
-
-Verify Breadcrumb link shared
     [Tags]    GUI    smoke
     Switch Browser    ${BrowserAlias}
-    Wait Until Page Contains Element    link=BAgenomeRay41.fa    ${GUIShortWait}
-    Page Should Contain Link    /browse/iplant/home/shared
-
-Verify Breadcrumb link iplantcollaborative
-    [Tags]    GUI    smoke
-    Switch Browser    ${BrowserAlias}
-    Page Should Contain Link    /browse/iplant/home/shared/iplantcollaborative
-
-Verify Breadcrumb link example_data
-    [Tags]    GUI    smoke
-    Switch Browser    ${BrowserAlias}
-    Page Should Contain Link    /browse/iplant/home/shared/iplantcollaborative/example_data
-
-Verify Breadcrumb link assembly_stats
-    [Tags]    GUI    smoke
-    Switch Browser    ${BrowserAlias}
-    Page Should Contain Link    /browse/iplant/home/shared/iplantcollaborative/example_data/assembly_stats
-
-Verify Breadcrumb link input
-    [Tags]    GUI    smoke    skipped
-    Switch Browser    ${BrowserAlias}
-    Page Should Contain Link    /browse/iplant/home/shared/iplantcollaborative/example_data/assembly_stats/input
-
-Verify Breadcrumb link BAgenomeRay41.fa
-    [Tags]    GUI    smoke    skipped
-    Switch Browser    ${BrowserAlias}
-    Page Should Contain Link    /browse/iplant/home/shared/iplantcollaborative/example_data/assembly_stats/input/BAgenomeRay41.fa
-    Comment    " BAgenomeRay41.fa                         "
+    Page Should Contain Link    shared
+    Page Should Contain Link    iplantcollaborative
+    Page Should Contain Link    example_data
+    Page Should Contain Link    assembly_stats
+    Page Should Contain Link    input
+    Page Should Contain Link    BAgenomeRay41.fa
 
 Open File Info Page
     [Tags]    GUI    smoke
     Switch Browser    ${BrowserAlias}
-    Comment    Click Link    BAgenomeRay41.fa
-    Comment    Click Link    ${SPACE}BAgenomeRay41.fa${SPACE*25}
-    Click Link    \#preview-0a0bef0a-4128-11e5-9404-3c4a92e4a804
-    Comment    Wait Until Page Contains Element    link=Download    ${GUIShortWait}
-    Comment    Wait Until Page Contains Element    xpath=//button[@value='${SPACE}Download${SPACE*9}']    ${GUIShortWait}
-    Comment    Wait Until Page Contains Element    xpath=//div[@value='Download']    ${GUIShortWait}
-    Wait Until Page Contains    Previews are limited to the first 8Kb. Download to view entire file.    ${GUIShortWait}
-    Comment    Wait Until Page Contains Element    xpath=//div[contains(@class,">scaffold-0")]    ${GUIShortWait}
-    Wait Until Page Does Not Contain    Loading preview    ${GUIShortWait}
+    Click Link    BAgenomeRay41.fa
+    Wait Until Page Contains Element    link=Download    ${GUIShortWait}
 
 Verify Download button
     [Tags]    GUI    smoke
     Switch Browser    ${BrowserAlias}
-    Comment    Page Should Contain Link    Download
-    Comment    Page Should Contain Button    ${SPACE}Download${SPACE*9}
-    Comment    Page Should Contain Element    xpath=//button[@value='${SPACE}Download${SPACE*9}']
-    Comment    Page Should Contain Element    id=download_button
-    Page Should Contain Element    css=div[id="download_button"]
-
-Verify Preview limit text
-    [Tags]    GUI    smoke
-    Switch Browser    ${BrowserAlias}
-    Page Should Contain    Previews are limited to the first 8Kb. Download to view entire file.
-
-Verify scaffold-0 text
-    [Tags]    GUI    smoke
-    Switch Browser    ${BrowserAlias}
-    Page Should Contain Element    xpath=//code[contains(text(), ">scaffold-0")]
+    Page Should Contain Link    Download
 
 Verify Metadata button
-    [Tags]    GUI    smoke    skipped
+    [Tags]    GUI    smoke
     Switch Browser    ${BrowserAlias}
     Page Should Contain Link    Metadata
 
 Verify Info button
-    [Tags]    GUI    smoke    skipped
+    [Tags]    GUI    smoke
     Switch Browser    ${BrowserAlias}
     Page Should Contain Link    Info
 
 Open Info Link for File
-    [Tags]    GUI    smoke    skipped
+    [Tags]    GUI    smoke
     Switch Browser    ${BrowserAlias}
     Click Link    Info
 
 Verify Info Link Checksum text
-    [Tags]    GUI    smoke    skipped
+    [Tags]    GUI    smoke
     Switch Browser    ${BrowserAlias}
     Page Should Contain    Checksum:
 
 Verify Info Link Created text
-    [Tags]    GUI    smoke    skipped
+    [Tags]    GUI    smoke
     Switch Browser    ${BrowserAlias}
     Page Should Contain    Created:
 
 Verify Info Link Last Modified text
-    [Tags]    GUI    smoke    skipped
+    [Tags]    GUI    smoke
     Switch Browser    ${BrowserAlias}
     Page Should Contain    Last Modified:
 
 Open Metadata Link for File
-    [Tags]    GUI    smoke    skipped
+    [Tags]    GUI    smoke
     Switch Browser    ${BrowserAlias}
     Click Link    Metadata
 
 Verify Metadata Link ipc_UUID text
-    [Tags]    GUI    smoke    skipped
+    [Tags]    GUI    smoke
     Switch Browser    ${BrowserAlias}
     Page Should Contain    ipc_UUID:
 
 Open Download Link for File
     [Tags]    GUI    smoke
     Switch Browser    ${BrowserAlias}
-    Comment    Click Button    Download
-    Comment    Click Element    id=download_button
-    Click Element    xpath=//button[contains(text(), "Download")]
-    Comment    Wait Until Page Contains    reCAPTCHA    ${GUIShortWait}
+    Click Link    Download
     Comment    Wait Until Page Contains    Verify your humanity    ${GUIShortWait}
     Comment    Wait Until Page Contains Element    id=recaptcha-anchor    ${GUIShortWait}
     Sleep    5s
     Comment    Wait Until Page Contains Element    link=Terms
 
 Verify Download Link Verify your humanity text
-    [Tags]    GUI    smoke    skipped
+    [Tags]    GUI    smoke
     Switch Browser    ${BrowserAlias}
     Page Should Contain    Verify your humanity
 
@@ -280,25 +221,25 @@ Verify Download Link I'm not a robot text
     Page Should Contain    I'm not a robot
 
 Verify Download Link I'm not a robot checkbox
-    [Tags]    GUI    smoke    skipped    skipped
+    [Tags]    GUI    smoke    skipped
     Switch Browser    ${BrowserAlias}
     Comment    Page Should Contain Element    id=recaptcha-anchor
     Page Should Contain Element    css=div.recaptcha-checkbox-checkmark
 
 Verify reCAPTCHA Privacy link
-    [Tags]    GUI    smoke    skipped    skipped
+    [Tags]    GUI    smoke    skipped
     Switch Browser    ${BrowserAlias}
     Comment    Page Should Contain Link    Privacy
     Page Should Contain Element    link=Privacy
 
 Verify reCAPTCHA Terms link
-    [Tags]    GUI    smoke    skipped    skipped
+    [Tags]    GUI    smoke    skipped
     Switch Browser    ${BrowserAlias}
     Comment    Page Should Contain Link    Terms
     Page Should Contain Element    link=Terms
 
 Verify s_2.txt preview
-    [Tags]    GUI    smoke    skipped
+    [Tags]    GUI    smoke
     Switch Browser    ${BrowserAlias}
     Click Link    shared
     Wait Until Page Contains Element    link=iplantcollaborative    ${GUIShortWait}
@@ -323,7 +264,7 @@ Verify s_2.txt preview
     Page Should Contain    +PRESLEY_0018:2:1:2210:1104#0/2
 
 Verify WGSOryza_metadata_fields.csv preview
-    [Tags]    GUI    smoke    skipped
+    [Tags]    GUI    smoke
     Switch Browser    ${BrowserAlias}
     Click Link    shared
     Comment    Wait Until Page Contains Element    link=data_commons    ${GUIShortWait}
@@ -342,7 +283,7 @@ Verify WGSOryza_metadata_fields.csv preview
     Wait Until Page Contains    file_name,file name,File to which metadata for the row should be appended.    ${GUIShortWait}
 
 Verify WGSOryza_project_metadata.csv preview
-    [Tags]    GUI    smoke    skipped
+    [Tags]    GUI    smoke
     Click Link    WGSOryza_CIAT_metadata
     Wait Until Page Contains Element    link=WGSOryza_project_metadata.csv    ${GUIShortWait}
     Click Link    WGSOryza_project_metadata.csv
@@ -350,7 +291,7 @@ Verify WGSOryza_project_metadata.csv preview
     Wait Until Page Contains    PRJNA205324,Whole genome sequencing of elite rice cultivars as a comprehensive information resource for marker assisted selection,Jorge    ${GUIShortWait}
 
 Verify WGSOryza_sample_metadata.csv preview
-    [Tags]    GUI    smoke    skipped
+    [Tags]    GUI    smoke
     Click Link    WGSOryza_CIAT_metadata
     Wait Until Page Contains Element    link=WGSOryza_sample_metadata.csv    ${GUIShortWait}
     Click Link    WGSOryza_sample_metadata.csv
@@ -358,7 +299,7 @@ Verify WGSOryza_sample_metadata.csv preview
     Wait Until Page Contains    042-87-34_bowtie2_NGSEP_SV.gff,042-87-34,,PRJNA205324,SAMN00027378,Oryza nivara,042-87-34,,,042-87-34,vascular leaf,,Nivara,0,300,0,27,    ${GUIShortWait}
 
 Select File Too Big to Download via HTTP - genome.fa
-    [Tags]    GUI    smoke    skipped    skipped
+    [Tags]    GUI    smoke    skipped
     Switch Browser    ${BrowserAlias}
     Click Link    shared
     Sleep    5s
@@ -391,7 +332,7 @@ Select File Too Big to Download via HTTP - genome.fa
     Page Should Contain Element    xpath=//input[@value='/iplant/home/shared/iplantcollaborative/example_data/Blat_with_BAM_output/']
 
 Open page to iplantcollaborative/example_data/Blat_with_BAM_output/genome.fa
-    [Tags]    GUI    smoke    skipped
+    [Tags]    GUI    smoke
     Switch Browser    ${BrowserAlias}
     Click Link    shared
     Wait Until Page Contains Element    link=walia_rice_salt    ${GUIShortWait}
@@ -407,74 +348,74 @@ Open page to iplantcollaborative/example_data/Blat_with_BAM_output/genome.fa
     Wait Until Page Contains    File Name:
 
 Verify Discovery Environment link
-    [Tags]    GUI    smoke    skipped
+    [Tags]    GUI    smoke
     Switch Browser    ${BrowserAlias}
     Page Should Contain Element    link=Discovery Environment
 
 Verify Requires iPlant account text
-    [Tags]    GUI    smoke    skipped
+    [Tags]    GUI    smoke
     Switch Browser    ${BrowserAlias}
     Page Should Contain    Requires CyVerse account
 
 Verify Public Access text
-    [Tags]    GUI    smoke    skipped
+    [Tags]    GUI    smoke
     Switch Browser    ${BrowserAlias}
     Page Should Contain    Public Access (No account required)
 
 Verify iCommands text
-    [Tags]    GUI    smoke    skipped
+    [Tags]    GUI    smoke
     Switch Browser    ${BrowserAlias}
     Page Should Contain    iCommands
 
 Verify iDrop text
-    [Tags]    GUI    smoke    skipped
+    [Tags]    GUI    smoke
     Switch Browser    ${BrowserAlias}
     Page Should Contain    iDrop
 
 Verify Cyberduck text
-    [Tags]    GUI    smoke    skipped
+    [Tags]    GUI    smoke
     Switch Browser    ${BrowserAlias}
     Page Should Contain    Cyberduck
 
 Verify More Information text
-    [Tags]    GUI    smoke    skipped
+    [Tags]    GUI    smoke
     Switch Browser    ${BrowserAlias}
     Page Should Contain    More Information
 
 Verify More Information link
-    [Tags]    GUI    smoke    skipped
+    [Tags]    GUI    smoke
     Switch Browser    ${BrowserAlias}
     Comment    Page Should Contain Element    link=More Information
     Page Should Contain Link    More Information
 
 Verify More Information href
-    [Tags]    GUI    smoke    skipped
+    [Tags]    GUI    smoke
     Switch Browser    ${BrowserAlias}
     Comment    Page Should Contain Link    https://wiki.cyverse.org/wiki/display/DS/Downloading+and+Uploading+Data
     Page Should Contain Link    http://www.cyverse.org/learning-center/manage-data
 
 Verify Input Path text
-    [Tags]    GUI    smoke    skipped
+    [Tags]    GUI    smoke
     Switch Browser    ${BrowserAlias}
     Page Should Contain    Path:
 
 Verify Input File Name text
-    [Tags]    GUI    smoke    skipped
+    [Tags]    GUI    smoke
     Switch Browser    ${BrowserAlias}
     Page Should Contain    File Name:
 
 Verify Input File Name editbox - genome.fa
-    [Tags]    GUI    smoke    skipped
+    [Tags]    GUI    smoke
     Switch Browser    ${BrowserAlias}
     Page Should Contain Element    xpath=//input[@value='genome.fa']
 
 Verify Input Path editbox - genome.fa
-    [Tags]    GUI    smoke    skipped
+    [Tags]    GUI    smoke
     Switch Browser    ${BrowserAlias}
     Page Should Contain Element    xpath=//input[@value='/iplant/home/shared/iplantcollaborative/example_data/Blat_with_BAM_output/']
 
 Select File Too Big to Download via HTTP - freddy.tar.gz
-    [Tags]    GUI    smoke    skipped
+    [Tags]    GUI    smoke
     Switch Browser    ${BrowserAlias}
     Click Link    shared
     Wait Until Page Contains Element    link=walia_rice_salt    ${GUIShortWait}
