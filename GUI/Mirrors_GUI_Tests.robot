@@ -291,10 +291,30 @@ Verify s_2.txt preview
     Click Link    \#preview-97a28c32-e104-11e3-80a7-6abdce5a08d5
     Wait Until Page Contains    gggggfggggggfgggg]ggBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB    ${GUIShortWait}
     Page Should Contain    Previews are limited to the first 8kB. Download to view entire file.
-    Page Should Contain    gggggfggggggfgggg]ggBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB
-    Page Should Contain    @PRESLEY_0018:2:1:2210:1104#0/2
-    Page Should Contain    TNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
-    Page Should Contain    +PRESLEY_0018:2:1:2210:1104#0/2
+
+Verify s_2.txt preview - 1st line
+    [Tags]    GUI    smoke
+    Switch Browser    ${BrowserAlias}
+    Comment    Page Should Contain    gggggfggggggfgggg]ggBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB
+    Page Should Contain Element    xpath=//code[contains(text(), "gggggfggggggfgggg]ggBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB")]
+
+Verify s_2.txt preview - 2nd line
+    [Tags]    GUI    smoke
+    Switch Browser    ${BrowserAlias}
+    Comment    Page Should Contain    @PRESLEY_0018:2:1:2210:1104#0/2
+    Page Should Contain Element    xpath=//code[contains(text(), "@PRESLEY_0018:2:1:2210:1104#0/2")]
+
+Verify s_2.txt preview - 3rd line
+    [Tags]    GUI    smoke
+    Switch Browser    ${BrowserAlias}
+    Comment    Page Should Contain    TNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+    Page Should Contain Element    xpath=//code[contains(text(), "TNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN")]
+
+Verify s_2.txt preview - 4th line
+    [Tags]    GUI    smoke
+    Switch Browser    ${BrowserAlias}
+    Comment    Page Should Contain    +PRESLEY_0018:2:1:2210:1104#0/2
+    Page Should Contain Element    xpath=//code[contains(text(), "+PRESLEY_0018:2:1:2210:1104#0/2")]
 
 Verify WGSOryza_metadata_fields.csv preview
     [Tags]    GUI    smoke
@@ -318,6 +338,16 @@ Verify WGSOryza_metadata_fields.csv preview
     Wait Until Page Contains    NCBI label,display label,comment    ${GUIShortWait}
     Wait Until Page Contains    file_name,file name,File to which metadata for the row should be appended.    ${GUIShortWait}
 
+Verify WGSOryza_metadata_fields.csv preview - 1st line
+    [Tags]    GUI    smoke
+    Switch Browser    ${BrowserAlias}
+    Page Should Contain Element    xpath=//code[contains(text(), "NCBI label,display label,comment")]
+
+Verify WGSOryza_metadata_fields.csv preview - 2nd line
+    [Tags]    GUI    smoke
+    Switch Browser    ${BrowserAlias}
+    Page Should Contain Element    xpath=//code[contains(text(), "file_name,file name,File to which metadata for the row should be appended.")]
+
 Verify WGSOryza_project_metadata.csv preview
     [Tags]    GUI    smoke
     Comment    Next line presses ESCAPE key to return back to data view
@@ -329,6 +359,16 @@ Verify WGSOryza_project_metadata.csv preview
     Wait Until Page Contains    bioproject ID,project name,project creator,project contribitor,project description,publication ID    ${GUIShortWait}
     Wait Until Page Contains    PRJNA205324,Whole genome sequencing of elite rice cultivars as a comprehensive information resource for marker assisted selection,Jorge    ${GUIShortWait}
 
+Verify WGSOryza_project_metadata.csv preview - 1st line
+    [Tags]    GUI    smoke
+    Switch Browser    ${BrowserAlias}
+    Page Should Contain Element    xpath=//code[contains(text(), "bioproject ID,project name,project creator,project contribitor,project description,publication ID")]
+
+Verify WGSOryza_project_metadata.csv preview - 2nd line
+    [Tags]    GUI    smoke
+    Switch Browser    ${BrowserAlias}
+    Page Should Contain Element    xpath=//code[contains(text(), "PRJNA205324,Whole genome sequencing of elite rice cultivars as a comprehensive information resource for marker assisted selection,Jorge")]
+
 Verify WGSOryza_sample_metadata.csv preview
     [Tags]    GUI    smoke
     Comment    Next line presses ESCAPE key to return back to data view
@@ -339,6 +379,16 @@ Verify WGSOryza_sample_metadata.csv preview
     Click Link    \#preview-4efb1ec8-0e2f-11e5-b0ae-3c4a92e4a804
     Wait Until Page Contains    file_name,sample_name,description,bioproject_id,sample_title,organism,cultivar,age,dev_stage,geo_loc_name,tissue,biomaterial_provider,    ${GUIShortWait}
     Wait Until Page Contains    042-87-34_bowtie2_NGSEP_SV.gff,042-87-34,,PRJNA205324,SAMN00027378,Oryza nivara,042-87-34,,,042-87-34,vascular leaf,,Nivara,0,300,0,27,    ${GUIShortWait}
+
+Verify WGSOryza_sample_metadata.csv preview - 1st line
+    [Tags]    GUI    smoke
+    Switch Browser    ${BrowserAlias}
+    Page Should Contain Element    xpath=//code[contains(text(), "file_name,sample_name,description,bioproject_id,sample_title,organism,cultivar,age,dev_stage,geo_loc_name,tissue,biomaterial_provider,")]
+
+Verify WGSOryza_sample_metadata.csv preview - 2nd line
+    [Tags]    GUI    smoke
+    Switch Browser    ${BrowserAlias}
+    Page Should Contain Element    xpath=//code[contains(text(), "042-87-34_bowtie2_NGSEP_SV.gff,042-87-34,,PRJNA205324,SAMN00027378,Oryza nivara,042-87-34,,,042-87-34,vascular leaf,,Nivara,0,300,0,27,")]
 
 Select File Too Big to Download via HTTP - genome.fa
     [Tags]    GUI    smoke    skipped
