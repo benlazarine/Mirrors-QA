@@ -341,7 +341,7 @@ Verify WGSOryza_sample_metadata.csv preview
     Wait Until Page Contains    042-87-34_bowtie2_NGSEP_SV.gff,042-87-34,,PRJNA205324,SAMN00027378,Oryza nivara,042-87-34,,,042-87-34,vascular leaf,,Nivara,0,300,0,27,    ${GUIShortWait}
 
 Select File Too Big to Download via HTTP - genome.fa
-    [Tags]    GUI    smoke
+    [Tags]    GUI    smoke    skipped
     Switch Browser    ${BrowserAlias}
     Comment    Next line presses ESCAPE key to return back to data view
     Press Key    css=.modal-open    \\27
@@ -380,15 +380,160 @@ Select File Too Big to Download via HTTP - genome.fa
     Page Should Contain     Discovery Environment (DE)
     Comment    Page Should Contain Element    https://de.iplantcollaborative.org/de/?type=data&folder=/iplant/home/shared/iplantcollaborative/example_data/Blat_with_BAM_output
     Page Should Contain     Path:
+    Page Should Contain Element    xpath=//input[@value='/iplant/home/shared/iplantcollaborative/example_data/Blat_with_BAM_output']
     Page Should Contain     File Name:
+    Page Should Contain Element    xpath=//input[@value='genome.fa']
     Page Should Contain     Previews are limited to the first 8kB. Download to view entire file.
     Comment    Page Should Contain     >chr1
     Comment    Page Should Contain     NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
     Page Should Contain Element    xpath=//code[contains(text(), ">chr1")]
     Page Should Contain Element    xpath=//code[contains(text(), "NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN")]
 
-Select File Too Big to Download via HTTP - freddy.tar.gz
+Select File Too Big to Download via HTTP - genome.fa
     [Tags]    GUI    smoke
+    Switch Browser    ${BrowserAlias}
+    Comment    Next line presses ESCAPE key to return back to data view
+    Press Key    css=.modal-open    \\27
+    Click Link    /browse/iplant/home/shared
+    Comment    Sleep    5s
+    Wait Until Page Contains Element    link=walia_rice_salt    ${GUIShortWait}
+    Click Link    /browse/iplant/home/shared/iplantcollaborative
+    Wait Until Page Contains Element    link=testing_tools    ${GUIShortWait}
+    Click Link    /browse/iplant/home/shared/iplantcollaborative/example_data
+    Comment    Wait Until Page Contains Element    link=zmapqtl    ${GUIShortWait}
+    Wait Until Page Contains Element    link=abyss    ${GUIShortWait}
+    Click Link    /browse/iplant/home/shared/iplantcollaborative/example_data/Blat_with_BAM_output
+    Wait Until Page Contains Element    link=genome.fa    ${GUIShortWait}
+    Comment    Click Link    genome.fa
+    Click Link    \#preview-8d6786d2-e1a4-11e3-883c-6abdce5a08d5
+    Wait Until Page Contains    Previews are limited to the first 8kB. Download to view entire file.    ${GUIShortWait}
+    Wait Until Page Contains Element    xpath=//code[contains(text(), ">chr1")]    ${GUIShortWait}
+
+Verify File too big - genome.fa - File Path label
+    [Tags]    GUI    smoke
+    Switch Browser    ${BrowserAlias}
+    Page Should Contain    File Path
+
+Verify File too big - genome.fa - File Path value text
+    [Tags]    GUI    smoke
+    Switch Browser    ${BrowserAlias}
+    Page Should Contain    /iplant/home/shared/iplantcollaborative/example_data/Blat_with_BAM_output/genome.fa
+
+Verify File too big - genome.fa - File Size label
+    [Tags]    GUI    smoke
+    Switch Browser    ${BrowserAlias}
+    Page Should Contain    File Size
+
+Verify File too big - genome.fa - 2.9 GB label
+    [Tags]    GUI    smoke
+    Switch Browser    ${BrowserAlias}
+    Page Should Contain    2.9 GB
+
+Verify File too big - genome.fa - Created label
+    [Tags]    GUI    smoke
+    Switch Browser    ${BrowserAlias}
+    Page Should Contain    Created
+
+Verify File too big - genome.fa - Last Modified label
+    [Tags]    GUI    smoke
+    Switch Browser    ${BrowserAlias}
+    Page Should Contain    Last Modified
+    Comment    Page Should Contain    Due to the size of this file, it cannot be downloaded from this page.${SPACE*13}Please use one of the following methods:
+    Comment    Page Should Contain    Due to the size of this file, it cannot be downloaded from this page. Please use one of the following methods:
+    Comment    Page Should Contain    "             Due to the size of this file, it cannot be downloaded from this page.             Please use one of the following methods:         "
+
+Verify File too big - genome.fa - Due to the size... label
+    [Tags]    GUI    smoke
+    Switch Browser    ${BrowserAlias}
+    Page Should Contain    Due to the size of this file, it cannot be downloaded from this page.
+
+Verify File too big - genome.fa - Please use one... label
+    [Tags]    GUI    smoke
+    Switch Browser    ${BrowserAlias}
+    Page Should Contain    Please use one of the following methods:
+
+Verify File too big - genome.fa - Public Access (No account required) label
+    [Tags]    GUI    smoke
+    Switch Browser    ${BrowserAlias}
+    Page Should Contain    Public Access (No account required)
+
+Verify File too big - genome.fa - iCommands label
+    [Tags]    GUI    smoke
+    Switch Browser    ${BrowserAlias}
+    Page Should Contain    iCommands
+
+Verify File too big - genome.fa - iDrop label
+    [Tags]    GUI    smoke
+    Switch Browser    ${BrowserAlias}
+    Page Should Contain     iDrop
+
+Verify File too big - genome.fa - Cyberduck label
+    [Tags]    GUI    smoke
+    Switch Browser    ${BrowserAlias}
+    Page Should Contain     Cyberduck
+
+Verify File too big - genome.fa - More Information label
+    [Tags]    GUI    smoke
+    Switch Browser    ${BrowserAlias}
+    Page Should Contain     More Information
+
+Verify File too big - genome.fa - More Information link
+    [Tags]    GUI    smoke
+    Switch Browser    ${BrowserAlias}
+    Page Should Contain Link    http://www.cyverse.org/learning-center/manage-data
+
+Verify File too big - genome.fa - CyVerse Users (requires CyVerse account) label
+    [Tags]    GUI    smoke
+    Switch Browser    ${BrowserAlias}
+    Page Should Contain     CyVerse Users (requires CyVerse account)
+
+Verify File too big - genome.fa - Discovery Environment (DE) label
+    [Tags]    GUI    smoke
+    Switch Browser    ${BrowserAlias}
+    Page Should Contain     Discovery Environment (DE)
+
+Verify File too big - genome.fa - Discovery Environment (DE) link
+    [Tags]    GUI    smoke    skipped
+    Switch Browser    ${BrowserAlias}
+    Page Should Contain Element    https://de.iplantcollaborative.org/de/?type=data&folder=/iplant/home/shared/iplantcollaborative/example_data/Blat_with_BAM_output
+
+Verify File too big - genome.fa - Path: label
+    [Tags]    GUI    smoke
+    Switch Browser    ${BrowserAlias}
+    Page Should Contain     Path:
+
+Verify File too big - genome.fa - Path text value
+    [Tags]    GUI    smoke
+    Switch Browser    ${BrowserAlias}
+    Page Should Contain Element    xpath=//input[@value='/iplant/home/shared/iplantcollaborative/example_data/Blat_with_BAM_output']
+
+Verify File too big - genome.fa - File Name: label
+    [Tags]    GUI    smoke
+    Switch Browser    ${BrowserAlias}
+    Page Should Contain     File Name:
+
+Verify File too big - genome.fa - File Name text value
+    [Tags]    GUI    smoke
+    Switch Browser    ${BrowserAlias}
+    Page Should Contain Element    xpath=//input[@value='genome.fa']
+
+Verify File too big - genome.fa - Previews are limited text
+    [Tags]    GUI    smoke
+    Switch Browser    ${BrowserAlias}
+    Page Should Contain     Previews are limited to the first 8kB. Download to view entire file.
+
+Verify File too big - genome.fa - 1st line of preview
+    [Tags]    GUI    smoke
+    Switch Browser    ${BrowserAlias}
+    Page Should Contain Element    xpath=//code[contains(text(), ">chr1")]
+
+Verify File too big - genome.fa - 2nd line of preview
+    [Tags]    GUI    smoke
+    Switch Browser    ${BrowserAlias}
+    Page Should Contain Element    xpath=//code[contains(text(), "NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN")]
+
+Select File Too Big to Download via HTTP - freddy.tar.gz
+    [Tags]    GUI    smoke    skipped
     Switch Browser    ${BrowserAlias}
     Comment    Next line presses ESCAPE key to return back to data view
     Press Key    css=.modal-open    \\27
@@ -426,5 +571,140 @@ Select File Too Big to Download via HTTP - freddy.tar.gz
     Page Should Contain     Discovery Environment (DE)
     Comment    Page Should Contain Element    https://de.iplantcollaborative.org/de/?type=data&folder=/iplant/home/shared/iplantcollaborative/example_data/Blat_with_BAM_output
     Page Should Contain     Path:
+    Page Should Contain Element    xpath=//input[@value='/iplant/home/shared/iplantcollaborative/example_data/abyss/transcriptome']
     Page Should Contain     File Name:
+    Page Should Contain Element    xpath=//input[@value='freddy.tar.gz']
+    Comment    Page Should Contain Element    css=input[@value='freddy.tar.gz']
+    Page Should Contain     Preview not available
+
+Select File Too Big to Download via HTTP - freddy.tar.gz
+    [Tags]    GUI    smoke
+    Switch Browser    ${BrowserAlias}
+    Comment    Next line presses ESCAPE key to return back to data view
+    Press Key    css=.modal-open    \\27
+    Click Link    /browse/iplant/home/shared
+    Wait Until Page Contains Element    link=walia_rice_salt    ${GUIShortWait}
+    Click Link    /browse/iplant/home/shared/iplantcollaborative
+    Wait Until Page Contains Element    link=testing_tools    ${GUIShortWait}
+    Click Link    /browse/iplant/home/shared/iplantcollaborative/example_data
+    Wait Until Page Contains Element    link=abyss    ${GUIShortWait}
+    Click Link    /browse/iplant/home/shared/iplantcollaborative/example_data/abyss
+    Wait Until Page Contains Element    link=transcriptome    ${GUIShortWait}
+    Click Link    /browse/iplant/home/shared/iplantcollaborative/example_data/abyss/transcriptome
+    Wait Until Page Contains Element    link=freddy.tar.gz    ${GUIShortWait}
+    Comment    Click Link    freddy.tar.gz
+    Click Link    \#preview-991a03c4-e104-11e3-80a7-6abdce5a08d5
+    Wait Until Page Contains    Preview not available    ${GUIShortWait}
+
+Verify File too big - freddy.tar.gz - File Path label
+    [Tags]    GUI    smoke
+    Switch Browser    ${BrowserAlias}
+    Page Should Contain    File Path
+
+Verify File too big - freddy.tar.gz - File Path value text
+    [Tags]    GUI    smoke
+    Switch Browser    ${BrowserAlias}
+    Page Should Contain    /iplant/home/shared/iplantcollaborative/example_data/abyss/transcriptome/freddy.tar.gz
+
+Verify File too big - freddy.tar.gz - File Size label
+    [Tags]    GUI    smoke
+    Switch Browser    ${BrowserAlias}
+    Page Should Contain    File Size
+
+Verify File too big - freddy.tar.gz - 6.9 GB label
+    [Tags]    GUI    smoke
+    Switch Browser    ${BrowserAlias}
+    Page Should Contain    6.9 GB
+
+Verify File too big - freddy.tar.gz - Created label
+    [Tags]    GUI    smoke
+    Switch Browser    ${BrowserAlias}
+    Page Should Contain    Created
+
+Verify File too big - freddy.tar.gz - Last Modified label
+    [Tags]    GUI    smoke
+    Switch Browser    ${BrowserAlias}
+    Page Should Contain    Last Modified
+
+Verify File too big - freddy.tar.gz - Due to the size label
+    [Tags]    GUI    smoke
+    Switch Browser    ${BrowserAlias}
+    Comment    Page Should Contain    ${SPACE*13}Due to the size of this file, it cannot be downloaded from this page.${SPACE*13}Please use one of the following methods:${SPACE*9}
+    Comment    Page Should Contain    Due to the size of this file, it cannot be downloaded from this page. Please use one of the following methods:
+    Comment    Page Should Contain    "             Due to the size of this file, it cannot be downloaded from this page.             Please use one of the following methods:         "
+    Page Should Contain    Due to the size of this file, it cannot be downloaded from this page.
+
+Verify File too big - freddy.tar.gz - Please use one of the following methods: label
+    [Tags]    GUI    smoke
+    Switch Browser    ${BrowserAlias}
+    Page Should Contain    Please use one of the following methods:
+
+Verify File too big - freddy.tar.gz - Public Access (No account required) label
+    [Tags]    GUI    smoke
+    Switch Browser    ${BrowserAlias}
+    Page Should Contain    Public Access (No account required)
+
+Verify File too big - freddy.tar.gz - iCommands label
+    [Tags]    GUI    smoke
+    Switch Browser    ${BrowserAlias}
+    Page Should Contain    iCommands
+
+Verify File too big - freddy.tar.gz - iDrop label
+    [Tags]    GUI    smoke
+    Switch Browser    ${BrowserAlias}
+    Page Should Contain     iDrop
+
+Verify File too big - freddy.tar.gz - Cyberduck label
+    [Tags]    GUI    smoke
+    Switch Browser    ${BrowserAlias}
+    Page Should Contain     Cyberduck
+
+Verify File too big - freddy.tar.gz - More Information label
+    [Tags]    GUI    smoke
+    Switch Browser    ${BrowserAlias}
+    Page Should Contain     More Information
+
+Verify File too big - freddy.tar.gz - More Information link
+    [Tags]    GUI    smoke
+    Switch Browser    ${BrowserAlias}
+    Page Should Contain Link    http://www.cyverse.org/learning-center/manage-data
+
+Verify File too big - freddy.tar.gz - CyVerse Users (requires CyVerse account)
+    [Tags]    GUI    smoke
+    Switch Browser    ${BrowserAlias}
+    Page Should Contain     CyVerse Users (requires CyVerse account)
+
+Verify File too big - freddy.tar.gz - Discovery Environment (DE) label
+    [Tags]    GUI    smoke
+    Switch Browser    ${BrowserAlias}
+    Page Should Contain     Discovery Environment (DE)
+
+Verify File too big - freddy.tar.gz - Discovery Environment (DE) link
+    [Tags]    GUI    smoke    skipped
+    Switch Browser    ${BrowserAlias}
+    Page Should Contain Link    https://de.iplantcollaborative.org/de/?type=data&folder=/iplant/home/shared/iplantcollaborative/example_data/Blat_with_BAM_output
+
+Verify File too big - freddy.tar.gz - Path:
+    [Tags]    GUI    smoke
+    Switch Browser    ${BrowserAlias}
+    Page Should Contain     Path:
+
+Verify File too big - freddy.tar.gz - path input text
+    [Tags]    GUI    smoke
+    Switch Browser    ${BrowserAlias}
+    Page Should Contain Element    xpath=//input[@value='/iplant/home/shared/iplantcollaborative/example_data/abyss/transcriptome']
+
+Verify File too big - freddy.tar.gz - File Name:
+    [Tags]    GUI    smoke
+    Switch Browser    ${BrowserAlias}
+    Page Should Contain    File Name:
+
+Verify File too big - freddy.tar.gz - filename input text
+    [Tags]    GUI    smoke
+    Switch Browser    ${BrowserAlias}
+    Page Should Contain Element    xpath=//input[@value='freddy.tar.gz']
+
+Verify File too big - freddy.tar.gz - Preview not available
+    [Tags]    GUI    smoke
+    Switch Browser    ${BrowserAlias}
     Page Should Contain     Preview not available
