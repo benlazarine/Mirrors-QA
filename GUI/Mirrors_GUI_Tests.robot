@@ -241,7 +241,7 @@ Open Download Link for File
     Comment    Wait Until Page Contains Element    link=Terms
 
 Verify Download Link I'm not a robot text
-    [Tags]    GUI    smoke
+    [Tags]    GUI    smoke    skipped
     Switch Browser    ${BrowserAlias}
     Page Should Contain    I'm not a robot
     Comment    Page Should Contain    xpath=//class[contains(text(), "I'm not a robot")]
@@ -267,10 +267,11 @@ Verify reCAPTCHA Terms link
 Verify s_2.txt preview
     [Tags]    GUI    smoke
     Switch Browser    ${BrowserAlias}
+    Comment    Next line presses ESCAPE key to return back to data view
     Press Key    css=.modal-open    \\27
     Comment    Press Key    css=.btn.btn-button    ESCAPE
     Comment    Press Key    css=.modal-open    ESCAPE
-    Sleep    5s
+    Comment    Sleep    5s
     Wait Until Page Contains Element    link=shared    ${GUIShortWait}
     Click Link    /browse/iplant/home/shared
     Wait Until Page Contains Element    link=iplantcollaborative    ${GUIShortWait}
@@ -296,183 +297,134 @@ Verify s_2.txt preview
     Page Should Contain    +PRESLEY_0018:2:1:2210:1104#0/2
 
 Verify WGSOryza_metadata_fields.csv preview
-    [Tags]    GUI    smoke    skipped
+    [Tags]    GUI    smoke
     Switch Browser    ${BrowserAlias}
-    Click Link    shared
+    Comment    Next line presses ESCAPE key to return back to data view
+    Press Key    css=.modal-open    \\27
+    Click Link    /browse/iplant/home/shared
     Comment    Wait Until Page Contains Element    link=data_commons    ${GUIShortWait}
     Wait Until Page Contains Element    link=commons_repo    ${GUIShortWait}
     Comment    Click Link    data_commons
-    Click Link    commons_repo
+    Click Link    /browse/iplant/home/shared/commons_repo
     Wait Until Page Contains Element    link=curated    ${GUIShortWait}
-    Click Link    curated
+    Click Link    /browse/iplant/home/shared/commons_repo/curated
     Wait Until Page Contains Element    link=Duitama_rice_variation_2015    ${GUIShortWait}
-    Click Link    Duitama_rice_variation_2015
+    Click Link    /browse/iplant/home/shared/commons_repo/curated/Duitama_rice_variation_2015
     Wait Until Page Contains Element    link=WGSOryza_CIAT_metadata    ${GUIShortWait}
-    Click Link    WGSOryza_CIAT_metadata
+    Click Link    /browse/iplant/home/shared/commons_repo/curated/Duitama_rice_variation_2015/WGSOryza_CIAT_metadata
     Wait Until Page Contains Element    link=WGSOryza_metadata_fields.csv    ${GUIShortWait}
-    Click Link    WGSOryza_metadata_fields.csv
+    Comment    Click Link    WGSOryza_metadata_fields.csv
+    Click Link    \#preview-4efd833e-0e2f-11e5-b339-3c4a92e4a804
     Wait Until Page Contains    NCBI label,display label,comment    ${GUIShortWait}
     Wait Until Page Contains    file_name,file name,File to which metadata for the row should be appended.    ${GUIShortWait}
 
 Verify WGSOryza_project_metadata.csv preview
-    [Tags]    GUI    smoke    skipped
-    Click Link    WGSOryza_CIAT_metadata
-    Wait Until Page Contains Element    link=WGSOryza_project_metadata.csv    ${GUIShortWait}
-    Click Link    WGSOryza_project_metadata.csv
+    [Tags]    GUI    smoke
+    Comment    Next line presses ESCAPE key to return back to data view
+    Press Key    css=.modal-open    \\27
+    Comment    Click Link    WGSOryza_CIAT_metadata
+    Comment    Wait Until Page Contains Element    link=WGSOryza_project_metadata.csv    ${GUIShortWait}
+    Comment    Click Link    WGSOryza_project_metadata.csv
+    Click Link    \#preview-4ef1e3e4-0e2f-11e5-81b2-3c4a92e4a804
     Wait Until Page Contains    bioproject ID,project name,project creator,project contribitor,project description,publication ID    ${GUIShortWait}
     Wait Until Page Contains    PRJNA205324,Whole genome sequencing of elite rice cultivars as a comprehensive information resource for marker assisted selection,Jorge    ${GUIShortWait}
 
 Verify WGSOryza_sample_metadata.csv preview
-    [Tags]    GUI    smoke    skipped
-    Click Link    WGSOryza_CIAT_metadata
-    Wait Until Page Contains Element    link=WGSOryza_sample_metadata.csv    ${GUIShortWait}
-    Click Link    WGSOryza_sample_metadata.csv
+    [Tags]    GUI    smoke
+    Comment    Next line presses ESCAPE key to return back to data view
+    Press Key    css=.modal-open    \\27
+    Comment    Click Link    WGSOryza_CIAT_metadata
+    Comment    Wait Until Page Contains Element    link=WGSOryza_sample_metadata.csv    ${GUIShortWait}
+    Comment    Click Link    WGSOryza_sample_metadata.csv
+    Click Link    \#preview-4efb1ec8-0e2f-11e5-b0ae-3c4a92e4a804
     Wait Until Page Contains    file_name,sample_name,description,bioproject_id,sample_title,organism,cultivar,age,dev_stage,geo_loc_name,tissue,biomaterial_provider,    ${GUIShortWait}
     Wait Until Page Contains    042-87-34_bowtie2_NGSEP_SV.gff,042-87-34,,PRJNA205324,SAMN00027378,Oryza nivara,042-87-34,,,042-87-34,vascular leaf,,Nivara,0,300,0,27,    ${GUIShortWait}
 
 Select File Too Big to Download via HTTP - genome.fa
-    [Tags]    GUI    smoke    skipped    skipped
+    [Tags]    GUI    smoke
     Switch Browser    ${BrowserAlias}
-    Click Link    shared
-    Sleep    5s
+    Comment    Next line presses ESCAPE key to return back to data view
+    Press Key    css=.modal-open    \\27
+    Click Link    /browse/iplant/home/shared
+    Comment    Sleep    5s
     Wait Until Page Contains Element    link=walia_rice_salt    ${GUIShortWait}
-    Click Link    iplantcollaborative
+    Click Link    /browse/iplant/home/shared/iplantcollaborative
     Wait Until Page Contains Element    link=testing_tools    ${GUIShortWait}
-    Click Link    example_data
-    Wait Until Page Contains Element    link=zmapqtl    ${GUIShortWait}
-    Click Link    Blat_with_BAM_output
+    Click Link    /browse/iplant/home/shared/iplantcollaborative/example_data
+    Comment    Wait Until Page Contains Element    link=zmapqtl    ${GUIShortWait}
+    Wait Until Page Contains Element    link=abyss    ${GUIShortWait}
+    Click Link    /browse/iplant/home/shared/iplantcollaborative/example_data/Blat_with_BAM_output
     Wait Until Page Contains Element    link=genome.fa    ${GUIShortWait}
-    Click Link    genome.fa
-    Wait Until Page Contains Element    link=Download Options    ${GUIShortWait}
-    Click Link    Download Options
-    Wait Until Page Contains    File Name:
-    Page Should Contain Element    link=Discovery Environment (DE)
-    Page Should Contain    (Requires CyVerse account)
-    Comment    Page Should Contain    Anonymous methods
+    Comment    Click Link    genome.fa
+    Click Link    \#preview-8d6786d2-e1a4-11e3-883c-6abdce5a08d5
+    Wait Until Page Contains    Previews are limited to the first 8kB. Download to view entire file.    ${GUIShortWait}
+    Wait Until Page Contains Element    xpath=//code[contains(text(), ">chr1")]    ${GUIShortWait}
+    Page Should Contain    File Path
+    Page Should Contain    /iplant/home/shared/iplantcollaborative/example_data/Blat_with_BAM_output/genome.fa
+    Page Should Contain    File Size
+    Page Should Contain    2.9 GB
+    Page Should Contain    Created
+    Page Should Contain    Last Modified
+    Comment    Page Should Contain    Due to the size of this file, it cannot be downloaded from this page.${SPACE*13}Please use one of the following methods:
+    Comment    Page Should Contain    Due to the size of this file, it cannot be downloaded from this page. Please use one of the following methods:
+    Comment    Page Should Contain    "             Due to the size of this file, it cannot be downloaded from this page.             Please use one of the following methods:         "
+    Page Should Contain    Due to the size of this file, it cannot be downloaded from this page.
+    Page Should Contain    Please use one of the following methods:
     Page Should Contain    Public Access (No account required)
-    Page Should Contain    More Information
-    Page Should Contain Element    link=More Information
     Page Should Contain    iCommands
-    Page Should Contain    iDrop
-    Page Should Contain    Cyberduck
-    Page Should Contain    iPlant Users (Requires CyVerse account)
-    Page Should Contain Element    link=DiscoveryEnvoronment (DE)
-    Page Should Contain Element    href=https://de.iplantcollaborative.org/de/?type=data&folder=/iplant/home/shared/iplantcollaborative/example_data/abyss/transcriptome/
-    Page Should Contain    Path:
-    Page Should Contain    File Name:
-    Page Should Contain Element    xpath=//input[@value='genome.fa']
-    Page Should Contain Element    xpath=//input[@value='/iplant/home/shared/iplantcollaborative/example_data/Blat_with_BAM_output/']
-
-Open page to iplantcollaborative/example_data/Blat_with_BAM_output/genome.fa
-    [Tags]    GUI    smoke    skipped
-    Switch Browser    ${BrowserAlias}
-    Click Link    shared
-    Wait Until Page Contains Element    link=walia_rice_salt    ${GUIShortWait}
-    Click Link    iplantcollaborative
-    Wait Until Page Contains Element    link=testing_tools    ${GUIShortWait}
-    Click Link    example_data
-    Wait Until Page Contains Element    link=zmapqtl    ${GUIShortWait}
-    Click Link    Blat_with_BAM_output
-    Wait Until Page Contains Element    link=genome.fa    ${GUIShortWait}
-    Click Link    genome.fa
-    Wait Until Page Contains Element    link=Download Options    ${GUIShortWait}
-    Click Link    Download Options
-    Wait Until Page Contains    File Name:
-
-Verify Discovery Environment link
-    [Tags]    GUI    smoke    skipped
-    Switch Browser    ${BrowserAlias}
-    Page Should Contain Element    link=Discovery Environment
-
-Verify Requires iPlant account text
-    [Tags]    GUI    smoke    skipped
-    Switch Browser    ${BrowserAlias}
-    Page Should Contain    Requires CyVerse account
-
-Verify Public Access text
-    [Tags]    GUI    smoke    skipped
-    Switch Browser    ${BrowserAlias}
-    Page Should Contain    Public Access (No account required)
-
-Verify iCommands text
-    [Tags]    GUI    smoke    skipped
-    Switch Browser    ${BrowserAlias}
-    Page Should Contain    iCommands
-
-Verify iDrop text
-    [Tags]    GUI    smoke    skipped
-    Switch Browser    ${BrowserAlias}
-    Page Should Contain    iDrop
-
-Verify Cyberduck text
-    [Tags]    GUI    smoke    skipped
-    Switch Browser    ${BrowserAlias}
-    Page Should Contain    Cyberduck
-
-Verify More Information text
-    [Tags]    GUI    smoke    skipped
-    Switch Browser    ${BrowserAlias}
-    Page Should Contain    More Information
-
-Verify More Information link
-    [Tags]    GUI    smoke    skipped
-    Switch Browser    ${BrowserAlias}
-    Comment    Page Should Contain Element    link=More Information
-    Page Should Contain Link    More Information
-
-Verify More Information href
-    [Tags]    GUI    smoke    skipped
-    Switch Browser    ${BrowserAlias}
-    Comment    Page Should Contain Link    https://wiki.cyverse.org/wiki/display/DS/Downloading+and+Uploading+Data
+    Page Should Contain     iDrop
+    Page Should Contain     Cyberduck
+    Page Should Contain     More Information
     Page Should Contain Link    http://www.cyverse.org/learning-center/manage-data
-
-Verify Input Path text
-    [Tags]    GUI    smoke    skipped
-    Switch Browser    ${BrowserAlias}
-    Page Should Contain    Path:
-
-Verify Input File Name text
-    [Tags]    GUI    smoke    skipped
-    Switch Browser    ${BrowserAlias}
-    Page Should Contain    File Name:
-
-Verify Input File Name editbox - genome.fa
-    [Tags]    GUI    smoke    skipped
-    Switch Browser    ${BrowserAlias}
-    Page Should Contain Element    xpath=//input[@value='genome.fa']
-
-Verify Input Path editbox - genome.fa
-    [Tags]    GUI    smoke    skipped
-    Switch Browser    ${BrowserAlias}
-    Page Should Contain Element    xpath=//input[@value='/iplant/home/shared/iplantcollaborative/example_data/Blat_with_BAM_output/']
+    Page Should Contain     CyVerse Users (requires CyVerse account)
+    Page Should Contain     Discovery Environment (DE)
+    Comment    Page Should Contain Element    https://de.iplantcollaborative.org/de/?type=data&folder=/iplant/home/shared/iplantcollaborative/example_data/Blat_with_BAM_output
+    Page Should Contain     Path:
+    Page Should Contain     File Name:
+    Page Should Contain     Previews are limited to the first 8kB. Download to view entire file.
+    Comment    Page Should Contain     >chr1
+    Comment    Page Should Contain     NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+    Page Should Contain Element    xpath=//code[contains(text(), ">chr1")]
+    Page Should Contain Element    xpath=//code[contains(text(), "NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN")]
 
 Select File Too Big to Download via HTTP - freddy.tar.gz
-    [Tags]    GUI    smoke    skipped
+    [Tags]    GUI    smoke
     Switch Browser    ${BrowserAlias}
-    Click Link    shared
+    Comment    Next line presses ESCAPE key to return back to data view
+    Press Key    css=.modal-open    \\27
+    Click Link    /browse/iplant/home/shared
     Wait Until Page Contains Element    link=walia_rice_salt    ${GUIShortWait}
-    Click Link    iplantcollaborative
+    Click Link    /browse/iplant/home/shared/iplantcollaborative
     Wait Until Page Contains Element    link=testing_tools    ${GUIShortWait}
-    Click Link    example_data
+    Click Link    /browse/iplant/home/shared/iplantcollaborative/example_data
     Wait Until Page Contains Element    link=abyss    ${GUIShortWait}
-    Click Link    abyss
+    Click Link    /browse/iplant/home/shared/iplantcollaborative/example_data/abyss
     Wait Until Page Contains Element    link=transcriptome    ${GUIShortWait}
-    Click Link    transcriptome
+    Click Link    /browse/iplant/home/shared/iplantcollaborative/example_data/abyss/transcriptome
     Wait Until Page Contains Element    link=freddy.tar.gz    ${GUIShortWait}
-    Click Link    freddy.tar.gz
-    Wait Until Page Contains Element    link=Download Options    ${GUIShortWait}
-    Click Link    Download Options
-    Wait Until Page Contains    File Name:
-    Page Should Contain Element    link=Discovery Environment
-    Page Should Contain    (Requires CyVerse account)
-    Comment    Page Should Contain    Anonymous methods
+    Comment    Click Link    freddy.tar.gz
+    Click Link    \#preview-991a03c4-e104-11e3-80a7-6abdce5a08d5
+    Wait Until Page Contains    Preview not available    ${GUIShortWait}
+    Page Should Contain    File Path
+    Page Should Contain    /iplant/home/shared/iplantcollaborative/example_data/abyss/transcriptome/freddy.tar.gz
+    Page Should Contain    File Size
+    Page Should Contain    6.9 GB
+    Page Should Contain    Created
+    Page Should Contain    Last Modified
+    Comment    Page Should Contain    ${SPACE*13}Due to the size of this file, it cannot be downloaded from this page.${SPACE*13}Please use one of the following methods:${SPACE*9}
+    Comment    Page Should Contain    Due to the size of this file, it cannot be downloaded from this page. Please use one of the following methods:
+    Comment    Page Should Contain    "             Due to the size of this file, it cannot be downloaded from this page.             Please use one of the following methods:         "
+    Page Should Contain    Due to the size of this file, it cannot be downloaded from this page.
+    Page Should Contain    Please use one of the following methods:
     Page Should Contain    Public Access (No account required)
-    Page Should Contain    More Information
-    Page Should Contain Element    link=More Information
     Page Should Contain    iCommands
-    Page Should Contain    iDrop
-    Page Should Contain    Cyberduck
-    Page Should Contain    Path:
-    Page Should Contain    File Name:
-    Page Should Contain Element    xpath=//input[@value='/iplant/home/shared/iplantcollaborative/example_data/abyss/transcriptome/']
-    Page Should Contain Element    xpath=//input[@value='freddy.tar.gz']
+    Page Should Contain     iDrop
+    Page Should Contain     Cyberduck
+    Page Should Contain     More Information
+    Page Should Contain Link    http://www.cyverse.org/learning-center/manage-data
+    Page Should Contain     CyVerse Users (requires CyVerse account)
+    Page Should Contain     Discovery Environment (DE)
+    Comment    Page Should Contain Element    https://de.iplantcollaborative.org/de/?type=data&folder=/iplant/home/shared/iplantcollaborative/example_data/Blat_with_BAM_output
+    Page Should Contain     Path:
+    Page Should Contain     File Name:
+    Page Should Contain     Preview not available
