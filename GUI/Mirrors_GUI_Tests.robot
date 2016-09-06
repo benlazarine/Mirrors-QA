@@ -168,13 +168,8 @@ Open File Info Page
     [Tags]    GUI    smoke
     Switch Browser    ${BrowserAlias}
     Comment    Click Link    BAgenomeRay41.fa
-    Comment    Click Link    ${SPACE}BAgenomeRay41.fa${SPACE*25}
     Click Link    \#preview-0a0bef0a-4128-11e5-9404-3c4a92e4a804
-    Comment    Wait Until Page Contains Element    link=Download    ${GUIShortWait}
-    Comment    Wait Until Page Contains Element    xpath=//button[@value='${SPACE}Download${SPACE*9}']    ${GUIShortWait}
-    Comment    Wait Until Page Contains Element    xpath=//div[@value='Download']    ${GUIShortWait}
     Wait Until Page Contains    Previews are limited to the first 8kB. Download to view entire file.    ${GUIShortWait}
-    Comment    Wait Until Page Contains Element    xpath=//div[contains(@class,">scaffold-0")]    ${GUIShortWait}
     Wait Until Page Does Not Contain    Loading preview    ${GUIShortWait}
 
 Verify File Path
@@ -210,10 +205,6 @@ Verify Last Modified
 Verify Download button
     [Tags]    GUI    smoke
     Switch Browser    ${BrowserAlias}
-    Comment    Page Should Contain Link    Download
-    Comment    Page Should Contain Button    ${SPACE}Download${SPACE*9}
-    Comment    Page Should Contain Element    xpath=//button[@value='${SPACE}Download${SPACE*9}']
-    Comment    Page Should Contain Element    id=download_button
     Page Should Contain Element    css=div[id="download_button"]
 
 Verify Preview message
@@ -230,15 +221,7 @@ Open Download Link for File
     [Tags]    GUI    smoke
     Switch Browser    ${BrowserAlias}
     Comment    Click Button    Download
-    Comment    Click Element    id=download_button
-    Comment    Click Element    css=div[id="download_button"]
-    Comment    Click Element    xpath=//button[contains(text(), "Download")]
     Click Element    css=.btn.btn-primary
-    Comment    Wait Until Page Contains    reCAPTCHA    ${GUIShortWait}
-    Comment    Wait Until Page Contains    Verify your humanity    ${GUIShortWait}
-    Comment    Wait Until Page Contains Element    id=recaptcha-anchor    ${GUIShortWait}
-    Comment    Sleep    15s
-    Comment    Wait Until Page Contains Element    link=Terms
 
 Verify Download Link I'm not a robot text
     [Tags]    GUI    smoke    skipped
@@ -269,9 +252,6 @@ Verify s_2.txt preview
     Switch Browser    ${BrowserAlias}
     Comment    Next line presses ESCAPE key to return back to data view
     Press Key    css=.modal-open    \\27
-    Comment    Press Key    css=.btn.btn-button    ESCAPE
-    Comment    Press Key    css=.modal-open    ESCAPE
-    Comment    Sleep    5s
     Wait Until Page Contains Element    link=shared    ${GUIShortWait}
     Click Link    /browse/iplant/home/shared
     Wait Until Page Contains Element    link=iplantcollaborative    ${GUIShortWait}
@@ -322,7 +302,6 @@ Verify WGSOryza_metadata_fields.csv preview
     Comment    Next line presses ESCAPE key to return back to data view
     Press Key    css=.modal-open    \\27
     Click Link    /browse/iplant/home/shared
-    Comment    Wait Until Page Contains Element    link=data_commons    ${GUIShortWait}
     Wait Until Page Contains Element    link=commons_repo    ${GUIShortWait}
     Comment    Click Link    data_commons
     Click Link    /browse/iplant/home/shared/commons_repo
@@ -352,8 +331,6 @@ Verify WGSOryza_project_metadata.csv preview
     [Tags]    GUI    smoke
     Comment    Next line presses ESCAPE key to return back to data view
     Press Key    css=.modal-open    \\27
-    Comment    Click Link    WGSOryza_CIAT_metadata
-    Comment    Wait Until Page Contains Element    link=WGSOryza_project_metadata.csv    ${GUIShortWait}
     Comment    Click Link    WGSOryza_project_metadata.csv
     Click Link    \#preview-4ef1e3e4-0e2f-11e5-81b2-3c4a92e4a804
     Wait Until Page Contains    bioproject ID,project name,project creator,project contribitor,project description,publication ID    ${GUIShortWait}
@@ -373,8 +350,6 @@ Verify WGSOryza_sample_metadata.csv preview
     [Tags]    GUI    smoke
     Comment    Next line presses ESCAPE key to return back to data view
     Press Key    css=.modal-open    \\27
-    Comment    Click Link    WGSOryza_CIAT_metadata
-    Comment    Wait Until Page Contains Element    link=WGSOryza_sample_metadata.csv    ${GUIShortWait}
     Comment    Click Link    WGSOryza_sample_metadata.csv
     Click Link    \#preview-4efb1ec8-0e2f-11e5-b0ae-3c4a92e4a804
     Wait Until Page Contains    file_name,sample_name,description,bioproject_id,sample_title,organism,cultivar,age,dev_stage,geo_loc_name,tissue,biomaterial_provider,    ${GUIShortWait}
@@ -396,12 +371,10 @@ Select File Too Big to Download via HTTP - genome.fa
     Comment    Next line presses ESCAPE key to return back to data view
     Press Key    css=.modal-open    \\27
     Click Link    /browse/iplant/home/shared
-    Comment    Sleep    5s
     Wait Until Page Contains Element    link=walia_rice_salt    ${GUIShortWait}
     Click Link    /browse/iplant/home/shared/iplantcollaborative
     Wait Until Page Contains Element    link=testing_tools    ${GUIShortWait}
     Click Link    /browse/iplant/home/shared/iplantcollaborative/example_data
-    Comment    Wait Until Page Contains Element    link=zmapqtl    ${GUIShortWait}
     Wait Until Page Contains Element    link=abyss    ${GUIShortWait}
     Click Link    /browse/iplant/home/shared/iplantcollaborative/example_data/Blat_with_BAM_output
     Wait Until Page Contains Element    link=genome.fa    ${GUIShortWait}
@@ -415,9 +388,6 @@ Select File Too Big to Download via HTTP - genome.fa
     Page Should Contain    2.9 GB
     Page Should Contain    Created
     Page Should Contain    Last Modified
-    Comment    Page Should Contain    Due to the size of this file, it cannot be downloaded from this page.${SPACE*13}Please use one of the following methods:
-    Comment    Page Should Contain    Due to the size of this file, it cannot be downloaded from this page. Please use one of the following methods:
-    Comment    Page Should Contain    "             Due to the size of this file, it cannot be downloaded from this page.             Please use one of the following methods:         "
     Page Should Contain    Due to the size of this file, it cannot be downloaded from this page.
     Page Should Contain    Please use one of the following methods:
     Page Should Contain    Public Access (No account required)
@@ -428,14 +398,11 @@ Select File Too Big to Download via HTTP - genome.fa
     Page Should Contain Link    http://www.cyverse.org/learning-center/manage-data
     Page Should Contain     CyVerse Users (requires CyVerse account)
     Page Should Contain     Discovery Environment (DE)
-    Comment    Page Should Contain Element    https://de.iplantcollaborative.org/de/?type=data&folder=/iplant/home/shared/iplantcollaborative/example_data/Blat_with_BAM_output
     Page Should Contain     Path:
     Page Should Contain Element    xpath=//input[@value='/iplant/home/shared/iplantcollaborative/example_data/Blat_with_BAM_output']
     Page Should Contain     File Name:
     Page Should Contain Element    xpath=//input[@value='genome.fa']
     Page Should Contain     Previews are limited to the first 8kB. Download to view entire file.
-    Comment    Page Should Contain     >chr1
-    Comment    Page Should Contain     NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
     Page Should Contain Element    xpath=//code[contains(text(), ">chr1")]
     Page Should Contain Element    xpath=//code[contains(text(), "NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN")]
 
@@ -445,7 +412,6 @@ Select File Too Big to Download via HTTP - genome.fa
     Comment    Next line presses ESCAPE key to return back to data view
     Press Key    css=.modal-open    \\27
     Click Link    /browse/iplant/home/shared
-    Comment    Sleep    5s
     Wait Until Page Contains Element    link=walia_rice_salt    ${GUIShortWait}
     Click Link    /browse/iplant/home/shared/iplantcollaborative
     Wait Until Page Contains Element    link=testing_tools    ${GUIShortWait}
@@ -488,9 +454,6 @@ Verify File too big - genome.fa - Last Modified label
     [Tags]    GUI    smoke
     Switch Browser    ${BrowserAlias}
     Page Should Contain    Last Modified
-    Comment    Page Should Contain    Due to the size of this file, it cannot be downloaded from this page.${SPACE*13}Please use one of the following methods:
-    Comment    Page Should Contain    Due to the size of this file, it cannot be downloaded from this page. Please use one of the following methods:
-    Comment    Page Should Contain    "             Due to the size of this file, it cannot be downloaded from this page.             Please use one of the following methods:         "
 
 Verify File too big - genome.fa - Due to the size... label
     [Tags]    GUI    smoke
@@ -606,9 +569,6 @@ Select File Too Big to Download via HTTP - freddy.tar.gz
     Page Should Contain    6.9 GB
     Page Should Contain    Created
     Page Should Contain    Last Modified
-    Comment    Page Should Contain    ${SPACE*13}Due to the size of this file, it cannot be downloaded from this page.${SPACE*13}Please use one of the following methods:${SPACE*9}
-    Comment    Page Should Contain    Due to the size of this file, it cannot be downloaded from this page. Please use one of the following methods:
-    Comment    Page Should Contain    "             Due to the size of this file, it cannot be downloaded from this page.             Please use one of the following methods:         "
     Page Should Contain    Due to the size of this file, it cannot be downloaded from this page.
     Page Should Contain    Please use one of the following methods:
     Page Should Contain    Public Access (No account required)
@@ -619,12 +579,10 @@ Select File Too Big to Download via HTTP - freddy.tar.gz
     Page Should Contain Link    http://www.cyverse.org/learning-center/manage-data
     Page Should Contain     CyVerse Users (requires CyVerse account)
     Page Should Contain     Discovery Environment (DE)
-    Comment    Page Should Contain Element    https://de.iplantcollaborative.org/de/?type=data&folder=/iplant/home/shared/iplantcollaborative/example_data/Blat_with_BAM_output
     Page Should Contain     Path:
     Page Should Contain Element    xpath=//input[@value='/iplant/home/shared/iplantcollaborative/example_data/abyss/transcriptome']
     Page Should Contain     File Name:
     Page Should Contain Element    xpath=//input[@value='freddy.tar.gz']
-    Comment    Page Should Contain Element    css=input[@value='freddy.tar.gz']
     Page Should Contain     Preview not available
 
 Select File Too Big to Download via HTTP - freddy.tar.gz
@@ -679,9 +637,6 @@ Verify File too big - freddy.tar.gz - Last Modified label
 Verify File too big - freddy.tar.gz - Due to the size label
     [Tags]    GUI    smoke
     Switch Browser    ${BrowserAlias}
-    Comment    Page Should Contain    ${SPACE*13}Due to the size of this file, it cannot be downloaded from this page.${SPACE*13}Please use one of the following methods:${SPACE*9}
-    Comment    Page Should Contain    Due to the size of this file, it cannot be downloaded from this page. Please use one of the following methods:
-    Comment    Page Should Contain    "             Due to the size of this file, it cannot be downloaded from this page.             Please use one of the following methods:         "
     Page Should Contain    Due to the size of this file, it cannot be downloaded from this page.
 
 Verify File too big - freddy.tar.gz - Please use one of the following methods: label
