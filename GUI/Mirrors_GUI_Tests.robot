@@ -197,23 +197,23 @@ Verify "X" window close
     Switch Browser    ${BrowserAlias}
     Page Should Contain Element    id=modal-close
 
-Verify File Path
+Verify assembly_stats/input File Path
     [Tags]    GUI    smoke
     Switch Browser    ${BrowserAlias}
     Page Should Contain    File Path
 
-Verify File Path value
+Verify assembly_stats/input File Path value
     [Tags]    GUI    smoke
     Switch Browser    ${BrowserAlias}
     Comment    Page Should Contain    /iplant/home/shared/iplantcollaborative/example_data/assembly_stats/input/BAgenomeRay41.fa
     Page Should Contain    /iplant/home/shared/iplantcollaborative/example_data/assembly_stats/input
 
-Verify File Name
+Verify BAgenomeRay41.fa File Name
     [Tags]    GUI    smoke
     Switch Browser    ${BrowserAlias}
     Page Should Contain    File Name
 
-Verify File Path value
+Verify BAgenomeRay41.fa File Name value
     [Tags]    GUI    smoke
     Switch Browser    ${BrowserAlias}
     Comment    Page Should Contain    /iplant/home/shared/iplantcollaborative/example_data/assembly_stats/input/BAgenomeRay41.fa
@@ -484,12 +484,12 @@ Verify File too big - genome.fa - File Path value text
     Switch Browser    ${BrowserAlias}
     Page Should Contain    /iplant/home/shared/iplantcollaborative/example_data/Blat_with_BAM_output
 
-Verify File too big - genome.fa - File Path label
+Verify File too big - genome.fa - File Name label
     [Tags]    GUI    smoke
     Switch Browser    ${BrowserAlias}
     Page Should Contain    File Name
 
-Verify File too big - genome.fa - File Path value text
+Verify File too big - genome.fa - File Name value text
     [Tags]    GUI    smoke
     Switch Browser    ${BrowserAlias}
     Page Should Contain    genome.fa
