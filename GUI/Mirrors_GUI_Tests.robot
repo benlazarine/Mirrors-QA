@@ -188,12 +188,13 @@ Open File Info Page
     [Tags]    GUI    smoke
     Switch Browser    ${BrowserAlias}
     Comment    Click Link    BAgenomeRay41.fa
-    Click Link    \#preview-0a0bef0a-4128-11e5-9404-3c4a92e4a804
+    Click Element    link=BAgenomeRay41.fa
+    Comment    Click Link    \#preview-0a0bef0a-4128-11e5-9404-3c4a92e4a804
     Wait Until Page Contains    Previews are limited to the first 8kB. Download to view entire file.    ${GUIShortWait}
     Wait Until Page Does Not Contain    Loading preview    ${GUIShortWait}
 
 Verify "X" window close
-    [Tags]    GUI    smoke
+    [Tags]    GUI    smoke    skipped
     Switch Browser    ${BrowserAlias}
     Page Should Contain Element    id=modal-close
 
@@ -304,8 +305,8 @@ Verify reCAPTCHA Terms link
 Verify s_2.txt preview
     [Tags]    GUI    smoke
     Switch Browser    ${BrowserAlias}
-    Comment    Next line presses ESCAPE key to return back to data view
-    Press Key    css=.modal-open    \\27
+    Comment    Comment    Next line presses ESCAPE key to return back to data view
+    Comment    Press Key    css=.modal-open    \\27
     Wait Until Page Contains Element    link=shared    ${GUIShortWait}
     Click Link    /browse/iplant/home/shared
     Wait Until Page Contains Element    link=iplantcollaborative    ${GUIShortWait}
@@ -322,7 +323,8 @@ Verify s_2.txt preview
     Click Link    /browse/iplant/home/shared/iplantcollaborative/example_data/abyss/transcriptome/s_peruvianum/presley
     Wait Until Page Contains Element    link=s_2.txt    ${GUIShortWait}
     Comment    Click Link    s_2.txt
-    Click Link    \#preview-97a28c32-e104-11e3-80a7-6abdce5a08d5
+    Comment    Click Link    \#preview-97a28c32-e104-11e3-80a7-6abdce5a08d5
+    Click Element    xpath=//a[@href="/browse/iplant/home/shared/iplantcollaborative/example_data/abyss/transcriptome/s_peruvianum/presley/s_2.txt"]
     Wait Until Page Contains    gggggfggggggfgggg]ggBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB    ${GUIShortWait}
     Page Should Contain    Previews are limited to the first 8kB. Download to view entire file.
 
@@ -353,8 +355,8 @@ Verify s_2.txt preview - 4th line
 Verify WGSOryza_metadata_fields.csv preview
     [Tags]    GUI    smoke
     Switch Browser    ${BrowserAlias}
-    Comment    Next line presses ESCAPE key to return back to data view
-    Press Key    css=.modal-open    \\27
+    Comment    Comment    Next line presses ESCAPE key to return back to data view
+    Comment    Press Key    css=.modal-open    \\27
     Click Link    /browse/iplant/home/shared
     Wait Until Page Contains Element    link=commons_repo    ${GUIShortWait}
     Comment    Click Link    data_commons
@@ -367,7 +369,8 @@ Verify WGSOryza_metadata_fields.csv preview
     Click Link    /browse/iplant/home/shared/commons_repo/curated/Duitama_rice_variation_2015/WGSOryza_CIAT_metadata
     Wait Until Page Contains Element    link=WGSOryza_metadata_fields.csv    ${GUIShortWait}
     Comment    Click Link    WGSOryza_metadata_fields.csv
-    Click Link    \#preview-4efd833e-0e2f-11e5-b339-3c4a92e4a804
+    Comment    Click Link    \#preview-4efd833e-0e2f-11e5-b339-3c4a92e4a804
+    Click Element    xpath=//a[@href="/browse/iplant/home/shared/commons_repo/curated/Duitama_rice_variation_2015/WGSOryza_CIAT_metadata/WGSOryza_metadata_fields.csv"]
     Wait Until Page Contains    NCBI label,display label,comment    ${GUIShortWait}
     Wait Until Page Contains    file_name,file name,File to which metadata for the row should be appended.    ${GUIShortWait}
 
@@ -383,10 +386,13 @@ Verify WGSOryza_metadata_fields.csv preview - 2nd line
 
 Verify WGSOryza_project_metadata.csv preview
     [Tags]    GUI    smoke
-    Comment    Next line presses ESCAPE key to return back to data view
-    Press Key    css=.modal-open    \\27
+    Comment    Comment    Next line presses ESCAPE key to return back to data view
+    Comment    Press Key    css=.modal-open    \\27
     Comment    Click Link    WGSOryza_project_metadata.csv
-    Click Link    \#preview-4ef1e3e4-0e2f-11e5-81b2-3c4a92e4a804
+    Comment    Click Link    \#preview-4ef1e3e4-0e2f-11e5-81b2-3c4a92e4a804
+    Click Element    xpath=//a[@href="/browse/iplant/home/shared/commons_repo/curated/Duitama_rice_variation_2015/WGSOryza_CIAT_metadata"]
+    Wait Until Page Contains Element    xpath=//a[@href="/browse/iplant/home/shared/commons_repo/curated/Duitama_rice_variation_2015/WGSOryza_CIAT_metadata/WGSOryza_sample_metadata.csv"]    ${GUIShortWait}
+    Click Element    xpath=//a[@href="/browse/iplant/home/shared/commons_repo/curated/Duitama_rice_variation_2015/WGSOryza_CIAT_metadata/WGSOryza_project_metadata.csv"]
     Wait Until Page Contains    bioproject ID,project name,project creator,project contribitor,project description,publication ID    ${GUIShortWait}
     Wait Until Page Contains    PRJNA205324,Whole genome sequencing of elite rice cultivars as a comprehensive information resource for marker assisted selection,Jorge    ${GUIShortWait}
 
@@ -402,10 +408,13 @@ Verify WGSOryza_project_metadata.csv preview - 2nd line
 
 Verify WGSOryza_sample_metadata.csv preview
     [Tags]    GUI    smoke
-    Comment    Next line presses ESCAPE key to return back to data view
-    Press Key    css=.modal-open    \\27
+    Comment    Comment    Next line presses ESCAPE key to return back to data view
+    Comment    Press Key    css=.modal-open    \\27
     Comment    Click Link    WGSOryza_sample_metadata.csv
-    Click Link    \#preview-4efb1ec8-0e2f-11e5-b0ae-3c4a92e4a804
+    Comment    Click Link    \#preview-4efb1ec8-0e2f-11e5-b0ae-3c4a92e4a804
+    Click Element    xpath=//a[@href="/browse/iplant/home/shared/commons_repo/curated/Duitama_rice_variation_2015/WGSOryza_CIAT_metadata"]
+    Wait Until Page Contains Element    xpath=//a[@href="/browse/iplant/home/shared/commons_repo/curated/Duitama_rice_variation_2015/WGSOryza_CIAT_metadata/WGSOryza_sample_metadata.csv"]    ${GUIShortWait}
+    Click Element    xpath=//a[@href="/browse/iplant/home/shared/commons_repo/curated/Duitama_rice_variation_2015/WGSOryza_CIAT_metadata/WGSOryza_sample_metadata.csv"]
     Wait Until Page Contains    file_name,sample_name,description,bioproject_id,sample_title,organism,cultivar,age,dev_stage,geo_loc_name,tissue,biomaterial_provider,    ${GUIShortWait}
     Wait Until Page Contains    042-87-34_bowtie2_NGSEP_SV.gff,042-87-34,,PRJNA205324,SAMN00027378,Oryza nivara,042-87-34,,,042-87-34,vascular leaf,,Nivara,0,300,0,27,    ${GUIShortWait}
 
@@ -422,8 +431,8 @@ Verify WGSOryza_sample_metadata.csv preview - 2nd line
 Select File Too Big to Download via HTTP - genome.fa
     [Tags]    GUI    smoke    skipped
     Switch Browser    ${BrowserAlias}
-    Comment    Next line presses ESCAPE key to return back to data view
-    Press Key    css=.modal-open    \\27
+    Comment    Comment    Next line presses ESCAPE key to return back to data view
+    Comment    Press Key    css=.modal-open    \\27
     Click Link    /browse/iplant/home/shared
     Wait Until Page Contains Element    link=walia_rice_salt    ${GUIShortWait}
     Click Link    /browse/iplant/home/shared/iplantcollaborative
@@ -433,7 +442,8 @@ Select File Too Big to Download via HTTP - genome.fa
     Click Link    /browse/iplant/home/shared/iplantcollaborative/example_data/Blat_with_BAM_output
     Wait Until Page Contains Element    link=genome.fa    ${GUIShortWait}
     Comment    Click Link    genome.fa
-    Click Link    \#preview-8d6786d2-e1a4-11e3-883c-6abdce5a08d5
+    Comment    Click Link    \#preview-8d6786d2-e1a4-11e3-883c-6abdce5a08d5
+    Click Element    xpath=//a[@href="/browse/iplant/home/shared/iplantcollaborative/example_data/Blat_with_BAM_output/genome.fa"]
     Wait Until Page Contains    Previews are limited to the first 8kB. Download to view entire file.    ${GUIShortWait}
     Wait Until Page Contains Element    xpath=//code[contains(text(), ">chr1")]    ${GUIShortWait}
     Page Should Contain    File Path
@@ -458,8 +468,8 @@ Select File Too Big to Download via HTTP - genome.fa
 Select File Too Big to Download via HTTP - genome.fa
     [Tags]    GUI    smoke
     Switch Browser    ${BrowserAlias}
-    Comment    Next line presses ESCAPE key to return back to data view
-    Press Key    css=.modal-open    \\27
+    Comment    Comment    Next line presses ESCAPE key to return back to data view
+    Comment    Press Key    css=.modal-open    \\27
     Click Link    /browse/iplant/home/shared
     Wait Until Page Contains Element    link=walia_rice_salt    ${GUIShortWait}
     Click Link    /browse/iplant/home/shared/iplantcollaborative
@@ -470,7 +480,8 @@ Select File Too Big to Download via HTTP - genome.fa
     Click Link    /browse/iplant/home/shared/iplantcollaborative/example_data/Blat_with_BAM_output
     Wait Until Page Contains Element    link=genome.fa    ${GUIShortWait}
     Comment    Click Link    genome.fa
-    Click Link    \#preview-8d6786d2-e1a4-11e3-883c-6abdce5a08d5
+    Comment    Click Link    \#preview-8d6786d2-e1a4-11e3-883c-6abdce5a08d5
+    Click Element    xpath=//a[@href="/browse/iplant/home/shared/iplantcollaborative/example_data/Blat_with_BAM_output/genome.fa"]
     Wait Until Page Contains    Previews are limited to the first 8kB. Download to view entire file.    ${GUIShortWait}
     Wait Until Page Contains Element    xpath=//code[contains(text(), ">chr1")]    ${GUIShortWait}
 
@@ -552,8 +563,8 @@ Verify File too big - genome.fa - Go to the Discovery Environment button
 Select File Too Big to Download via HTTP - freddy.tar.gz
     [Tags]    GUI    smoke    skipped
     Switch Browser    ${BrowserAlias}
-    Comment    Next line presses ESCAPE key to return back to data view
-    Press Key    css=.modal-open    \\27
+    Comment    Comment    Next line presses ESCAPE key to return back to data view
+    Comment    Press Key    css=.modal-open    \\27
     Click Link    /browse/iplant/home/shared
     Wait Until Page Contains Element    link=walia_rice_salt    ${GUIShortWait}
     Click Link    /browse/iplant/home/shared/iplantcollaborative
@@ -565,7 +576,8 @@ Select File Too Big to Download via HTTP - freddy.tar.gz
     Click Link    /browse/iplant/home/shared/iplantcollaborative/example_data/abyss/transcriptome
     Wait Until Page Contains Element    link=freddy.tar.gz    ${GUIShortWait}
     Comment    Click Link    freddy.tar.gz
-    Click Link    \#preview-991a03c4-e104-11e3-80a7-6abdce5a08d5
+    Comment    Click Link    \#preview-991a03c4-e104-11e3-80a7-6abdce5a08d5
+    Click Element    xpath=//a[@href="/browse/iplant/home/shared/iplantcollaborative/example_data/abyss/transcriptome/freddy.tar.gz"]
     Wait Until Page Contains    Preview not available    ${GUIShortWait}
     Page Should Contain    File Path
     Page Should Contain    /iplant/home/shared/iplantcollaborative/example_data/abyss/transcriptome
@@ -587,9 +599,9 @@ Select File Too Big to Download via HTTP - freddy.tar.gz
 Select File Too Big to Download via HTTP - freddy.tar.gz
     [Tags]    GUI    smoke
     Switch Browser    ${BrowserAlias}
-    Comment    Next line presses ESCAPE key to return back to data view
-    Comment    Press Key    css=.modal-open    \\27
-    Press Key    css=.modal-body    \\27
+    Comment    Comment    Next line presses ESCAPE key to return back to data view
+    Comment    Comment    Press Key    css=.modal-open    \\27
+    Comment    Press Key    css=.modal-body    \\27
     Click Link    /browse/iplant/home/shared
     Wait Until Page Contains Element    link=walia_rice_salt    ${GUIShortWait}
     Click Link    /browse/iplant/home/shared/iplantcollaborative
@@ -601,7 +613,8 @@ Select File Too Big to Download via HTTP - freddy.tar.gz
     Click Link    /browse/iplant/home/shared/iplantcollaborative/example_data/abyss/transcriptome
     Wait Until Page Contains Element    link=freddy.tar.gz    ${GUIShortWait}
     Comment    Click Link    freddy.tar.gz
-    Click Link    \#preview-991a03c4-e104-11e3-80a7-6abdce5a08d5
+    Comment    Click Link    \#preview-991a03c4-e104-11e3-80a7-6abdce5a08d5
+    Click Element    xpath=//a[@href="/browse/iplant/home/shared/iplantcollaborative/example_data/abyss/transcriptome/freddy.tar.gz"]
     Wait Until Page Contains    Preview not available    ${GUIShortWait}
 
 Verify File too big - freddy.tar.gz - File Path label
