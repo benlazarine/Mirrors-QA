@@ -109,22 +109,24 @@ Verify Discovery Environment website (bottom) link href
 
 Verify Atmosphere website (bottom) link
     [Tags]    GUI    smoke    skipped
-    Comment    Bottom "About" link no longer displayed as of 01/10/2016 - Remove if it does not come back.
+    Comment    Bottom "About" link no longer displayed as of 01/10/2016 - Remove test if it does not come back.
     Switch Browser    ${BrowserAlias}
     Page Should Contain Link    Atmosphere
 
 Verify Atmosphere website (bottom) link href
     [Tags]    GUI    smoke
     Switch Browser    ${BrowserAlias}
-    Page Should Contain Link    http://atmo.cyverse.org
+    Page Should Contain Link    http://atmo.cyverse.org/
 
 Verify About website (bottom) link
-    [Tags]    GUI    smoke
+    [Tags]    GUI    smoke    skipped
+    Comment    Bottom "About" link no longer displayed as of 01/10/2016 - Remove test if it does not come back.
     Switch Browser    ${BrowserAlias}
     Page Should Contain Link    About
 
 Verify About website (bottom) link href
-    [Tags]    GUI    smoke
+    [Tags]    GUI    smoke    skipped
+    Comment    Bottom "About" link no longer displayed as of 01/10/2016 - Remove test if it does not come back.
     Switch Browser    ${BrowserAlias}
     Page Should Contain Link    https://pods.iplantcollaborative.org/wiki/display/DS/Sharing+Data+with+the+Public+in+the+Community+Data+Directory+and+Mirrors+Site
 
